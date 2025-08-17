@@ -1,0 +1,20 @@
+﻿buradan veritabanından işlemler yapılıyor. Tüm verileri çekme, güncelleme,silme,ekleme gibi işlemler.
+
+Abstact dosyası içindeki IEntityRepository, içinde <T> ile parametre bekleyip o entitye göre işlem yapacak bir interfacetir.Expression ile mutlaka değer verilmesi gereken şeyleri ayaladık.Ayrıca where yazarak T için bazı kurallar yazdık. IProductDal ve ICategoryDal bunu kullanıyor
+
+Abstact dosyası içindeki IProductDal IEntityRepository içindeki fonksiyonları yapıyor ama Product için yapıyor
+Abstact dosyası içindeki ICategoryDal IEntityRepository içindeki fonksiyonları yapıyor ama Category için yapıyor
+
+Concrete dosyası içindeki veritabanı kodları yer alıyor.Şimdilik EntityFramework ve NHibernate var(hibernate boş).
+
+Concrete dosyası içindeki EfCategoryDal EfEntityRepositoryBase classına Category, NorthwindContext classlarını ve ICategoryDal içindekini kullanıyor
+Concrete dosyası içindeki EfCategoryDal EfEntityRepositoryBase classına Product, NorthwindContext classlarını ve IProductDal içindekini kullanıyor
+
+Concrete dosyası içindeki NorthWind, databaseden Product ve Category türünde getter ve setter tanımladık
+
+Concrete dosyası içindeki EfEntityRepositoryBase, gelen TEntity(işlem yapılacak varlık) ve gelen TContext(veritabanı) alıyor
+where ile TEntity ve TContext için şart koyuyoruz.
+ve IEntityRepository<TEntity> de içersin.
+burada Add,Delete,Get,GetAll,ve Update methodlarını içeriyor.
+public TEntity Get(Expression<Func<TEntity, bool>> filter) ----> sonuç varsa 1 tane döner yoksa null döner 
+public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null) ----> Verilen filtreye uyan (veya filtre verilmemişse tüm) kayıtların bir listesini döner.

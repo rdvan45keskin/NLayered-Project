@@ -1,0 +1,4 @@
+﻿Business katmanı ise şartlar koyulup şartlar sağlanırsa DataAccess içindeki kodların çalıştırılmasını sağlıyor
+Abstract içinde interface şeklinde, kullanılan DataAccess için kullanılan fonksiyonlar var
+Concrete içinde ProductManager içinde IProductDal kullanan classların(entityframework, nhibernate vb.) 
+constructor ile verilen DataAccess içeriğini çalıştırmayı sağlıyo.

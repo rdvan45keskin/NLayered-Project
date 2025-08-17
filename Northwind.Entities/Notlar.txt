@@ -1,0 +1,2 @@
+﻿Product içinde veritabanının sütunlarıyla aynı isimde olacak şekilde getter ve setter methodları var.
+IEntity isimli interface yazarak onun bir veritabanı nesnesiymiş gibi olmasını sağladık içi boş. IEntityReposiyory içinde IEntity kullanması şartını koyduk
